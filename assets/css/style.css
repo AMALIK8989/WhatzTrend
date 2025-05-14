@@ -1,0 +1,259 @@
+/* HEADER BACKGROUND */
+#main-header.header-section {
+  background-image: url('https://www.exclusiveinn.com/wp-content/uploads/2020/12/banner-1-2.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  color: #ffffff !important;
+  position: relative !important;
+}
+
+/* NAVBAR STYLES */
+.navbar {
+  background-color: transparent !important;
+}
+
+.navbar-brand {
+  font-weight: bold !important;
+  font-size: 1.5rem !important;
+  color: #ffffff !important;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.nav-link.active,
+.nav-link:hover,
+.nav-link:focus {
+  color: #000000 !important; /* Goldish hover color */
+  text-decoration: underline !important;
+}
+
+/* HERO SECTION */
+.hero-section {
+  width: 100% !important;
+  height: 700px !important;
+  position: relative !important;
+  text-align: center !important;
+  color: #ffffff !important;
+}
+
+#hero {
+  min-height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* OVERLAY */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* HERO CONTENT */
+#hero-content {
+  position: relative !important;
+  z-index: 2 !important;
+  text-align: center !important;
+}
+
+#hero-content h1 {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+}
+
+#hero-content p {
+  font-size: 1.25rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+#hero-content a.btn {
+  padding: 0.75rem 2rem !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  border-radius: 50px !important;
+}
+.continuous-swiper {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.swiper-slide {
+  width: auto !important;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+}
+.swiper-slide img {
+  height: 300px !important;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.swiper-slide img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+/* Glassmorphism styles */
+.services-listed{
+  background-color: #000000;
+}
+
+
+/* #services-wrapper {
+
+}
+
+#service-wrapper {
+
+} */
+
+#service-card {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.3s ease-in-out;
+}
+
+#service-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.3); /* Slightly lighter on hover */
+}
+.card-title{
+  margin-top:1rem;
+  margin-bottom:.75rem;
+  color:#ffffff !important;
+}
+.card-body{padding:2rem}.fa-3x{font-size:2.5em}.card-text{color:#f3f3f3}.services-listed .container{padding-top:4rem;padding-bottom:4rem}.card-body>i{display:block;margin-left:auto;margin-right:auto;margin-bottom:1.5rem}
+  /* Custom CSS for the gallery section */
+    .custom-gallery-bg {
+        background-color: #f8f9fa; /* Light gray background */
+    }
+
+    .custom-gallery-heading {
+        color: #343a40; /* Dark gray heading text */
+    }
+
+    .custom-gallery-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: -15px; /* Adjust for spacing */
+        margin-left: -15px;
+    }
+
+    .custom-gallery-item {
+        padding-left: 15px;
+        padding-top: 15px;
+        width: 33.333%; /* For 3 images per row on larger screens */
+    }
+
+    /* Adjust width for medium screens */
+    @media (max-width: 991.98px) {
+        .custom-gallery-item {
+            width: 50%; /* For 2 images per row on medium screens */
+        }
+    }
+
+    /* Adjust width for small screens */
+    @media (max-width: 767.98px) {
+        .custom-gallery-item {
+            width: 100%; /* For 1 image per row on small screens */
+        }
+    }
+
+    .custom-gallery-image {
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    .custom-gallery-image:hover {
+        transform: scale(1.05);
+    }
+
+    /* Custom CSS for the modal */
+    .custom-modal-title {
+        color: #007bff; /* Primary color for modal title */
+    }
+
+    .custom-modal-body {
+        padding: 20px;
+    }
+
+    .custom-modal-image {
+        width: 100%;
+        height: auto;
+        display: block; /* Remove extra space below image */
+    }
+    .custom-footer-sect {
+      background-image: url("https://www.sequrewesterncape.co.za/wp-content/uploads/2014/12/footer-background-02.png");
+    padding: 20px 0;
+}
+
+.my-footer {
+    padding: 15px 0;
+}
+
+.social-links {
+    margin-bottom: 0; /* Remove default list margin */
+}
+
+.social-links .list-inline-item {
+    margin: 0 10px;
+}
+
+.social-links a {
+    color: #ffffff; /* Dark gray link color */
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #007bff; /* Blue hover color */
+}
+
+/* Ensure icons are properly sized and aligned */
+.social-links i {
+    font-size: 1.5em; /* Adjust icon size */
+    vertical-align: middle; /* Align icons vertically with text */
+}#form-container {
+    background-color: #f8f9fa; /* Light background */
+}
+
+#form-wrapper {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+#form-wrapped {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.social-btn a {
+    width: 48%; /* Adjust width for spacing */
+}

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Dashboard </title>
+    <script src="./assets/js/custom.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js" integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: #544a7d;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ffd452, #544a7d);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffd452, #544a7d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+       
+header{
+    width: 100% !important;
+    height: auto;
+}
+#sidebar {
+    height: 100vh !important;
+    background-color: #212529 !important; /* Darker background */
+    color: #e0e0e0 !important; /* Lighter text */
+    width: 280px !important; /* Slightly wider */
+    padding-top: 30px !important;
+    transition: width 0.3s ease-in-out !important; /* Smoother transition */
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2) !important; /* Subtle shadow */
+    z-index: 101 !important; /* Ensure it's above content */
+}
+
+#sidebar.collapsed {
+    width: 70px !important; /* More compact collapsed width */
+}
+
+#sidebar h2 {
+    padding: 25px 20px !important;
+    text-align: left !important; /* Align text to the left when expanded */
+    margin-bottom: 30px !important;
+    font-size: 1.8em !important; /* Slightly larger title */
+    font-weight: 600 !important; /* Semi-bold */
+    letter-spacing: 0.5px !important;
+}
+
+#sidebar.collapsed h2 {
+    padding: 15px 10px !important;
+    font-size: 1.4em !important;
+    text-align: center !important;
+    margin-bottom: 15px !important;
+    overflow: hidden !important; /* Hide overflowing text */
+    white-space: nowrap !important;
+}
+
+#sidebar ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#sidebar ul li a {
+    display: flex !important;
+    align-items: center !important;
+    padding: 18px 25px !important; /* More vertical padding */
+    text-decoration: none !important;
+    color: #bdbdbd !important;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important; /* Smooth transitions */
+    border-left: 3px solid transparent !important; /* Indicator for active/hover */
+}
+
+#sidebar ul li a:hover,
+#sidebar ul li a.active {
+    background-color: rgba(255, 255, 255, 0.05) !important; /* Subtle hover/active background */
+    color: #fff !important;
+    border-left-color: #007bff !important; /* Accent color for indicator */
+}
+
+#sidebar ul li a i {
+    margin-right: 20px !important;
+    width: 30px !important; /* Slightly larger icon space */
+    text-align: center !important;
+    font-size: 1.2em !important;
+}
+
+#sidebar.collapsed ul li a span {
+    display: none !important;
+}
+
+#sidebar.collapsed ul li a i {
+    margin-right: 0 !important;
+    width: auto !important;
+    font-size: 1.8em !important; /* Larger icons when collapsed */
+    justify-content: center !important;
+    display: flex !important;
+}
+
+/* Main Content Area */
+main {
+    padding: 30px !important; /* Reduced overall padding */
+    margin-left: 280px !important; /* Adjust for sidebar width */
+    transition: margin-left 0.3s ease-in-out !important;
+}
+
+body.sidebar-collapsed main {
+    margin-left: 70px !important; /* Adjust for collapsed sidebar */
+}
+
+#content {
+    flex-grow: 1 !important;
+    padding: 0 !important; /* Remove default content padding */
+}
+
+.dashboard-card {
+    background-color: #fff !important;
+    padding: 25px !important;
+    margin-bottom: 25px !important;
+    border-radius: 10px !important; /* More rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important; /* More pronounced shadow */
+    border: 1px solid #e0e0e0 !important; /* Subtle border */
+}
+
+.section-heading {
+    border-bottom: 2px solid #ddd !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 30px !important;
+    font-size: 1.5em !important;
+    font-weight: 500 !important;
+    color: #333 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column !important;
+    }
+
+    #sidebar {
+        width: 100% !important;
+        height: auto !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        padding-bottom: 15px !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 100 !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important; /* Shadow for top sidebar */
+    }
+
+    #sidebar h2 {
+        display: none !important;
+    }
+
+    #sidebar ul {
+        display: flex !important;
+    }
+
+    #sidebar ul li {
+        flex-shrink: 0 !important;
+    }
+
+    #sidebar ul li a {
+        padding: 12px 18px !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        border-left: none !important;
+        border-bottom: 2px solid transparent !important; /* Indicator for active/hover */
+    }
+
+    #sidebar ul li a:hover,
+    #sidebar ul li a.active {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        color: #fff !important;
+        border-bottom-color: #007bff !important;
+    }
+
+    #sidebar ul li a i {
+        margin-right: 0 !important;
+        margin-bottom: 8px !important;
+        font-size: 1.5em !important;
+    }
+
+    #sidebar ul li a span {
+        display: block !important;
+        font-size: 0.9em !important;
+    }
+
+    main {
+        margin-left: 0 !important;
+        padding-top: 80px !important; /* Adjust for fixed top sidebar */
+    }
+}
+/* Styling for the charts container */
+.dashboard-card#sales .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+}
+
+.dashboard-card#sales .col-md-6 {
+    position: relative !important;
+    width: 100% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    flex: 0 0 auto !important;
+    max-width: 50% !important;
+}
+
+/* Style the chart titles */
+.dashboard-card#sales h3 {
+    font-size: 1.3em !important;
+    font-weight: 500 !important;
+    color: #333 !important;
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+    text-align: center !important;
+}
+
+/* Style the canvas elements */
+.dashboard-card#sales canvas {
+    width: 100% !important;
+    max-height: 300px !important; /* Adjust as needed */
+    background-color: #f9f9f9 !important; /* Optional background for charts */
+    border-radius: 8px !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) !important;
+    padding: 10px !important; /* Add some padding inside the chart area */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .dashboard-card#sales .col-md-6 {
+        flex: 0 0 auto !important;
+        max-width: 100% !important;
+    }
+
+    .dashboard-card#sales h3 {
+        font-size: 1.1em !important;
+    }
+
+    .dashboard-card#sales canvas {
+        max-height: 250px !important;
+    }
+}
+    </style>
+  </head>
+
+<body>
+    <header>
+         <div id="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="#sales"><i class="fas fa-chart-line"></i> <span>Sales</span></a></li>
+            <li><a href="#receivable"><i class="fas fa-coins"></i> <span>Receivable</span></a></li>
+            <li><a href="#payable"><i class="fas fa-money-bill-wave"></i> <span>Payable</span></a></li>
+            <li><a href="#products"><i class="fas fa-box-open"></i> <span>Products</span></a></li>
+            <li><a href="#videos"><i class="fas fa-video"></i> <span>Videos</span></a></li>
+            <li><a href="#orders"><i class="fas fa-shopping-cart"></i> <span>Orders</span></a></li>
+            <li><a href="#customers"><i class="fas fa-users"></i> <span>Customers</span></a></li>
+            <li><a href="#settings"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+        </ul>
+    </div>
+    </header>
+
+    
+
+    <main>
+        <section class="container-fluid">
+ <div id="content">
+        <div class="dashboard-card">
+            <h1 class="section-heading">Dashboard Overview</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card bg-primary text-white mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-chart-line"></i> Total Sales</h5>
+                            <p class="card-text">$12,500</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-coins"></i> Receivable</h5>
+                            <p class="card-text">$3,200</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-danger text-white mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-money-bill-wave"></i> Payable</h5>
+                            <p class="card-text">$1,800</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      <div class="dashboard-card" id="sales">
+    <h2 class="section-heading"><i class="fas fa-chart-line"></i> Sales Statistics</h2>
+    <p>Here you can track your sales data, view charts, and analyze trends.</p>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <h3>Line Chart - Monthly Sales</h3>
+            <canvas id="monthlySalesChart"></canvas>
+        </div>
+        <div class="col-md-6 mb-4">
+            <h3>Scatter Chart - Product Performance vs. Marketing Spend</h3>
+            <canvas id="productPerformanceChart"></canvas>
+        </div>
+        <div class="col-md-6 mb-4">
+            <h3>Bar Chart (as a Plotter Chart Example) - Website Traffic by Source</h3>
+            <canvas id="trafficSourceChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Line Chart Data
+        const monthlySalesData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Monthly Sales ($)',
+                data: [1500, 1800, 2200, 1900, 2500, 2300, 2800, 2600, 3000, 2700, 3200, 3500],
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderWidth: 2,
+                pointRadius: 5,
+                pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+            }]
+        };
+
+        // Scatter Chart Data
+        const productPerformanceData = {
+            datasets: [{
+                label: 'Product Performance',
+                data: [
+                    { x: 100, y: 50 },   // Marketing Spend: 100, Performance: 50
+                    { x: 150, y: 75 },
+                    { x: 80, y: 40 },
+                    { x: 200, y: 90 },
+                    { x: 120, y: 60 },
+                    { x: 180, y: 80 },
+                    { x: 90, y: 45 }
+                ],
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                pointRadius: 7,
+            }]
+        };
+
+        // Bar Chart (as a Plotter Chart Example) Data
+        const trafficSourceData = {
+            labels: ['Organic Search', 'Direct', 'Referral', 'Social Media', 'Paid Ads'],
+            datasets: [{
+                label: 'Website Traffic',
+                data: [1200, 800, 500, 900, 600],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(255, 159, 64, 0.6)',
+                    'rgba(255, 205, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(54, 162, 235, 0.6)'
+                ],
+                borderWidth: 1,
+                borderColor: '#fff',
+            }]
+        };
+
+        // Create Line Chart
+        const monthlySalesChartCanvas = document.getElementById('monthlySalesChart').getContext('2d');
+        const monthlySalesChart = new Chart(monthlySalesChartCanvas, {
+            type: 'line',
+            data: monthlySalesData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Sales ($)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: false,
+                    }
+                }
+            }
+        });
+
+        // Create Scatter Chart
+        const productPerformanceChartCanvas = document.getElementById('productPerformanceChart').getContext('2d');
+        const productPerformanceChart = new Chart(productPerformanceChartCanvas, {
+            type: 'scatter',
+            data: productPerformanceData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Marketing Spend ($)'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Product Performance Score'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    title: {
+                        display: false,
+                    }
+                }
+            }
+        });
+
+        // Create Bar Chart (as a Plotter Chart)
+        const trafficSourceChartCanvas = document.getElementById('trafficSourceChart').getContext('2d');
+        const trafficSourceChart = new Chart(trafficSourceChartCanvas, {
+            type: 'bar',
+            data: trafficSourceData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Visitors'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Traffic Source'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    title: {
+                        display: false,
+                    }
+                }
+            }
+        });
+    });
+</script>
+  <div class="dashboard-card" id="receivable">
+            <h2 class="section-heading"><i class="fas fa-coins"></i> Accounts Receivable</h2>
+            <p>Manage and track outstanding payments from customers.</p>
+            </div>
+
+        <div class="dashboard-card" id="payable">
+            <h2 class="section-heading"><i class="fas fa-money-bill-wave"></i> Accounts Payable</h2>
+            <p>Keep track of your bills and payments to suppliers.</p>
+            </div>
+ <div class="dashboard-card" id="orders">
+            <h2 class="section-heading"><i class="fas fa-shopping-cart"></i> Order Management</h2>
+            <p>View and manage customer orders.</p>
+            </div>
+<div class="dashboard-card" id="customers">
+            <h2 class="section-heading"><i class="fas fa-users"></i> Customer Management</h2>
+            <p>Manage your customer database.</p>
+            </div>
+     <div class="dashboard-card" id="settings">
+            <h2 class="section-heading"><i class="fas fa-cog"></i> Settings</h2>
+            <p>Configure your dashboard and website settings.</p>
+            </div>
+    </div>
+    </section>
+    <script>
+        // Basic script for collapsing sidebar (optional)
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById('sidebar');
+            const toggleButton = document.createElement('button');
+            toggleButton.innerHTML = '<i class="fas fa-bars"></i>';
+            toggleButton.classList.add('btn', 'btn-dark', 'ms-2', 'd-md-none');
+            toggleButton.addEventListener('click', function() {
+                sidebar.classList.toggle('collapsed');
+            });
+            document.body.insertBefore(toggleButton, document.getElementById('content'));
+
+            // Optional: Initial state for collapsed sidebar on larger screens
+            if (window.innerWidth > 768) {
+                // sidebar.classList.add('collapsed');
+            }
+        });
+    </script>
+    </main>
+<body>
+    
+</body>
+</html>
